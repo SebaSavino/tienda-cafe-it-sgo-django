@@ -10,7 +10,7 @@ Este proyecto tiene fines educativos y pertenece a la comunidad de desarrollador
 
 1. Bajar el repositorio
     ```bash
-    git clone https://github.com/SebaSavino/tienda-cafe-it-sgo-django
+    git clone https://github.com/SebaSavino/tienda-cafe-it-sgo-django.git
     ```
 
 2. Crear un entorno virtual dentro de la misma carpeta con el nombre "venv" para que sea ignorado (.gitignore) y no se suba a Github
