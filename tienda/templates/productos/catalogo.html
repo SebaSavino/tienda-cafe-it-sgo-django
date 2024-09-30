@@ -1,15 +1,33 @@
 {% extends 'layouts/tienda.html' %} {% block titulo %} Productos {% endblock %}
-
 {% block contenido %}
 
 <div class="container mx-auto">
-    <p class="text-4xl font-bold">Productos</p>
+  <div class="flex justify-between items-center">
+    <p class="text-4xl font-bold">
+      Productos
+      <span class="text-sm text-primary">{{ items.count }} items</span>
+    </p>
 
-    <div class="grid grid-cols-4 gap-20 my-10">
-        {% for item in items %}
-            {% include './_product-card.html' with producto=item %}
-        {% endfor %}
-    </div>
+    {% include './_buscar-producto.html' %}
+  </div>
+
+  {% if busqueda %}
+  <div class="my-5 flex items-center gap-4">
+    <p class="bg-primary text-white px-5 py-3 font-light text-xl rounded-sm">
+      Búsqueda: <span class="font-semibold">{{ busqueda }}</span>
+    </p>
+
+    <a
+      href="{% url 'productos:catalogo' %}{% if categoria %}?categoria={{categoria}}{% endif %}"
+      class="link link-hover"
+      >Limpiar</a
+    >
+  </div>
+  {% endif %}
+
+  <div class="grid grid-cols-4 gap-20 my-10">
+    {% for item in items %} {% include './_producto-item.html' with producto=item %} {% endfor %}
+  </div>
 </div>
 
 {% endblock %}
